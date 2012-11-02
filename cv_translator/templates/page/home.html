@@ -1,0 +1,19 @@
+{% extends "site/two_column_page.html" %}
+    
+    {% block page_column_one %}
+        <p class="justify">
+        This application can be used to check freemind-produced controlled 
+        vocabularies against that required for metadata questionnaire ingestion.
+        </p>
+    {% endblock %}
+    
+    {% block page_column_two %}
+        <div class="row">
+          <form enctype="multipart/form-data" action="{{ urls.home }}" method="POST">
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                Choose a file to upload: 
+                <input class="btn btn-block" name="uploadedfile" type="file" /><br />
+            <input class="btn btn-primary btn-block" type="submit" value="Translate mindmap" />
+          </form>
+        </div>
+    {% endblock %}

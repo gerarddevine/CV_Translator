@@ -1,0 +1,13 @@
+{% extends "site/one_column_page.html" %}
+    
+    {% block page_column_one %}
+        <div class="row">
+          <ul>
+            {% for error in errors %}
+              <div class="alert alert-error">
+              {{ error.message }}
+              </div>
+            {% endfor %}
+          </ul>
+        </div>
+    {% endblock %}

@@ -1,0 +1,9 @@
+build/*
+.project
+.pydevproject
+*.pyc
+*.pyo
+*.swp
+*.sqlite
+venv/
+cimexpgen/local_settings.py
