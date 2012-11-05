@@ -9,11 +9,62 @@
     
     {% block page_column_two %}
         <div class="row">
-          <form enctype="multipart/form-data" action="{{ urls.home }}" method="POST">
-            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+          <div class="span4 pagination-centered">
+            <form enctype="multipart/form-data" action="{{ urls.report }}" method="POST" onsubmit="return checkFile();">
+              <input class="btn btn-block" type="hidden" name="MAX_FILE_SIZE" value="1000"/>
                 Choose a file to upload: 
-                <input class="btn btn-block" name="uploadedfile" type="file" /><br />
-            <input class="btn btn-primary btn-block" type="submit" value="Translate mindmap" />
-          </form>
+                <input name="uploadedfile" type="file" id="mmfile"/><br />
+          </div>
         </div>
+            <div class="row">
+              <div class="span4">
+                <input id = "mm" class="btn btn-primary btn-block" type="submit" value="1. Validate mindmap" />
+              </div>
+            </div>
+          </form>
+    
+	    <div id="nofile" class="modal hide fade">
+	      <div class="modal-header">      
+          </div> 
+		  <div class="modal-body">
+		    <p>You must select a file</p>
+		  </div>
+		  <div class="modal-footer">
+		    <button id="cancel" class="btn" data-dismiss="modal" type="button" name="cancel">Close</a>
+		  </div>
+	    </div>
+	    
+	    <div id="notmm" class="modal hide fade">
+          <div class="modal-header">      
+          </div> 
+          <div class="modal-body">
+            <p>You must select a .mm file</p>
+          </div>
+          <div class="modal-footer">
+            <button id="cancel" class="btn" data-dismiss="modal" type="button" name="cancel">Close</a>
+          </div>
+        </div>
+    
     {% endblock %}
+    
+    {% block extrajs %}
+      <script type="text/javascript">
+	      function checkFile() {
+	        var oTarget = document.getElementById('mmfile');
+            if (oTarget.value.length < 1) {
+              $("#nofile").modal('show')
+              return false;
+            } 
+            
+            if (oTarget.value.indexOf(".mm") === -1) {
+              $("#notmm").modal('show')
+              return false;
+            }
+            else {
+              return true;
+            }
+            
+	      }
+      </script>
+    {% endblock %}
+    

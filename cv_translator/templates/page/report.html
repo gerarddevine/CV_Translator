@@ -1,0 +1,47 @@
+{% extends "site/one_column_page.html" %}
+    
+    {% block page_column_one %}
+        
+	    <div class="page-header">
+	      {% if errors or warnings%}
+	        <h3>Your mindmap contains {{ errors|length }} errors and {{ warnings|length }} warnings</h3>
+	      {% else %}          
+	        <h3>Great! Your mindmap file is valid.</h3>
+          {% endif %}
+	    </div>
+    
+        <div class="row">
+          {% if errors %}
+	          <ul>
+	            {% for error in errors %}
+	              <div class="alert alert-error">
+	              Error - {{ error }}
+	              </div>
+	            {% endfor %}
+	          </ul>
+	      {% endif %}
+          {% if warnings %}
+              <ul>
+                {% for warning in warnings %}
+                  <div class="alert alert-block">
+                    Warning - {{ warning }}
+                  </div>
+                {% endfor %}
+              </ul>
+              {% if not errors %}
+                <div class="row">
+                  <div class="offset1">
+                    <h4>You may continue but note there are warnings on the mindmap</h4>
+                  </div>
+                </div>
+              {% endif %}    
+          {% endif %}
+          <div class="span2 offset8">
+            {% if not errors %}
+              <a class="btn btn-primary btn-block" href="{{ urls.createxml }}">2. Create Qn XML</a>
+            {% endif %}
+            <a class="btn btn-block" href="{{ urls.home }}">Return to Home Page</a>
+          </div>
+        </div>
+        
+    {% endblock %}
