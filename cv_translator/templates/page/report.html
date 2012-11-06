@@ -28,18 +28,8 @@
                   </div>
                 {% endfor %}
               </ul>
-              {% if not errors %}
-                <div class="row">
-                  <div class="offset1">
-                    <h4>You may continue but note there are warnings on the mindmap</h4>
-                  </div>
-                </div>
-              {% endif %}    
           {% endif %}
           <div class="span2 offset8">
-            {% if not errors %}
-              <a class="btn btn-primary btn-block" href="{{ urls.createxml }}">2. Create Qn XML</a>
-            {% endif %}
             <a class="btn btn-block" href="{{ urls.home }}">Return to Home Page</a>
           </div>
         </div>

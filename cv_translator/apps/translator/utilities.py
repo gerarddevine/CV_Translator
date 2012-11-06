@@ -10,7 +10,6 @@ def genurls():
     urls = {}
     urls['home'] = reverse('home', args=())
     urls['about'] = reverse('about', args=())
-    urls['report'] = reverse('report', args=())
     
     return urls
   

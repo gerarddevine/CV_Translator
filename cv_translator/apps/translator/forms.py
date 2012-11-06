@@ -1,10 +1,9 @@
 from django import forms
 
 
-class UploadFileForm(forms.Form):
-    ''' simple form class for mindmap file upload
+class MMForm(forms.Form):
+    ''' simple form class for mindmap file uploading
     
     '''
-    mmfile = forms.FileField(
-        label='Select a file'
-    )
+    mmfile = forms.FileField(required=False)
+    igWarnings = forms.BooleanField(required=False)

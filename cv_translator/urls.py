@@ -12,7 +12,6 @@ urlpatterns = patterns('',
     # home and about pages
     (r'^$','cv_translator.apps.translator.views.home', {}, 'home'),
     (r'^about/$','cv_translator.apps.translator.views.about', {}, 'about'),
-    (r'^report/$','cv_translator.apps.translator.views.report', {}, 'report'),
 )
 
 

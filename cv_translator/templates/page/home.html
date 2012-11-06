@@ -4,25 +4,31 @@
         <p class="justify">
         This application can be used to check freemind-produced controlled 
         vocabularies against that required for metadata questionnaire ingestion.
+        Upon passing validation the file can be translated to a metadata 
+        questionnaire-friendly xml input file. 
         </p>
     {% endblock %}
     
     {% block page_column_two %}
-        <div class="row">
-          <div class="span4 pagination-centered">
-            <form enctype="multipart/form-data" action="{{ urls.report }}" method="POST" onsubmit="return checkFile();">
-              <input class="btn btn-block" type="hidden" name="MAX_FILE_SIZE" value="1000"/>
-                Choose a file to upload: 
-                <input name="uploadedfile" type="file" id="mmfile"/><br />
-          </div>
+        <div class="row well">
+	        <div class="row pagination-centered">
+	            <form enctype="multipart/form-data" action="{{ urls.home }}" method="POST" onsubmit="return checkFile();">
+	              <input class="btn btn-block" type="hidden" name="MAX_FILE_SIZE"/>
+	              <input name="uploadedfile" type="file" id="mmfile"/><br />
+	        </div>
+	        
+	        <div class="row pagination-centered">
+	          <div class="offset0">
+	              {{ mmform.igWarnings }} Click to ignore warnings <p class="icon-info-sign ttip" rel="tooltip" data-placement="top" title="The translation to questionnaire xml will only be halted in the event of errors in the mindmaps. Warnings will be ignored."></p>
+	          </div>
+	        </div>
         </div>
-            <div class="row">
-              <div class="span4">
-                <input id = "mm" class="btn btn-primary btn-block" type="submit" value="1. Validate mindmap" />
-              </div>
-            </div>
+        
+        <div class="row">
+                <input id = "mm" class="btn btn-primary btn-block" type="submit" value="Translate mindmap" />
+        </div>
           </form>
-    
+        
 	    <div id="nofile" class="modal hide fade">
 	      <div class="modal-header">      
           </div> 
