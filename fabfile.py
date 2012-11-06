@@ -17,7 +17,7 @@ def deploy():
     code_dir = '/home/gdevine/web/prod/cv_translator'
     with settings(warn_only=True):
         if run("test -d %s" % code_dir).failed:
-            run("git clone git@github.com:gerarddevine/cv_translator.git %s" % code_dir)
+            run("git clone git@github.com:gerarddevine/CV_Translator.git %s" % code_dir)
     with cd(code_dir):
         run("pwd")
         run("ls -la")
