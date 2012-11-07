@@ -4,7 +4,7 @@ from fabric.contrib.console import confirm
 
 
 env.hosts = ['gdevine@puma.nerc.ac.uk']
-
+env.activate = 'source /home/gdevine/web/prod/cv_translator/venv/bin/activate'
 
 def gitupdate():
     local("git add .")
@@ -23,8 +23,8 @@ def deploy():
         run("ls -la")
         run("git pull")
         run("virtualenv venv --no-site-packages")
-        run("source /home/gdevine/web/prod/cv_translator/venv/bin/activate")
-        run("pip install -r requirements.txt")
-        run("cd cv_translator")
-        run("chmod 777 cv_translator.sqlite")
+        run(env.activate + "&& pip install -r requirements.txt")
+        run(env.activate + "cd cv_translator")
+        run(env.activate + "python manage.py syncdb --noinput")
+        run(env.activate + "chmod 777 cv_translator.sqlite")
 
