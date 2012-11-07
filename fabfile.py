@@ -22,4 +22,8 @@ def deploy():
         run("pwd")
         run("ls -la")
         run("git pull")
-        #run("touch app.wsgi")
+        run("virtualenv venv --no-site-packages")
+        run("pip install -r requirements.txt")
+        run("cd cv_translator")
+        run("chmod 777 cv_translator.sqlite")
+
