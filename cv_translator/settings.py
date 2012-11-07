@@ -114,5 +114,14 @@ try:
     from local_settings import *
 except ImportError:
     pass
+  
+
+# Logging
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(name)s %(module)s %(levelname)s [%(asctime)s] %(message)s',
+)
+LOG=logging.getLogger('CV_Translator')
 
 

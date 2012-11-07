@@ -7,6 +7,9 @@ import libxslt
 from subprocess import *
 import datetime
 
+from django.conf import settings
+logging=settings.LOG
+
 
 #get location of this directory for path setting
 thisDir = os.path.dirname(__file__)
@@ -24,6 +27,7 @@ def checkMM(mmfile):
     > warninglist - List of warnings encountered during xslt translation
     '''
     
+    logging.debug("INTO checkMM")
     #pull in the xsl transformation file
     XSLFileName = os.path.join(thisDir, 'xslt', 'mmcheck_0.9.0_bdl.xsl')
     #set the fpre file
