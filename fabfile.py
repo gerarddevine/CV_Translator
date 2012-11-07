@@ -24,7 +24,6 @@ def deploy():
         run("git pull")
         run("virtualenv venv --no-site-packages")
         run("source /home/gdevine/web/prod/cv_translator/venv/bin/activate")
-        run("yolk -")
         run("pip install -r requirements.txt")
         run("cd cv_translator")
         run("chmod 777 cv_translator.sqlite")
