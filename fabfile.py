@@ -23,6 +23,7 @@ def deploy():
         run("ls -la")
         run("git pull")
         run("virtualenv venv --no-site-packages")
+        run("source venv/bin/activate")
         run("pip install -r requirements.txt")
         run("cd cv_translator")
         run("chmod 777 cv_translator.sqlite")
